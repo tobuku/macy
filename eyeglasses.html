@@ -15,7 +15,8 @@
     body { font-family: 'Inter', sans-serif; color: var(--dark); line-height: 1.6; }
     a { color: inherit; text-decoration: none; }
     header { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 64px; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 72px; }
+    .logo-img { height: 56px; width: auto; display: block; }
     .logo { font-size: 1.2rem; font-weight: 700; color: var(--teal); line-height: 1.2; }
     .logo span { display: block; font-size: 0.75rem; font-weight: 400; color: var(--gray); }
     nav { display: flex; gap: 28px; align-items: center; }
@@ -103,7 +104,9 @@
 
 <header>
   <div class="nav-inner">
-    <a href="index.html" class="logo">Macy's Eye Care<span>Honolulu, Hawaii</span></a>
+    <a href="index.html">
+      <img src="images/Macys-Eye-Care-logo.png" alt="Macy's Eye Care" class="logo-img">
+    </a>
     <nav>
       <a href="index.html">Home</a>
       <a href="services.html">Eye Care Services</a>
@@ -133,7 +136,7 @@
 <!-- EYEGLASSES -->
 <section class="section">
   <div class="container">
-    <div class="two-col">
+    <div class="two-col" style="margin-bottom:48px; align-items:center;">
       <div class="content-col">
         <div class="section-label">Eyeglasses</div>
         <h2 class="section-title">The Right Frame for Every Face</h2>
@@ -142,8 +145,12 @@
         <p>Whether you need single-vision lenses, bifocals, progressives, or specialty lenses for computer use or outdoor activities, we have options for every need and budget.</p>
         <a href="contact.html" class="btn-primary">Schedule a Frame Fitting</a>
       </div>
-      <div>
-        <div class="frames-grid">
+      <div style="border-radius:16px; overflow:hidden;">
+        <img src="images/hero-image.jpg" alt="Patient wearing glasses at Macy's Eye Care" style="width:100%; height:380px; object-fit:cover; object-position:left center; display:block;">
+      </div>
+    </div>
+    <div>
+      <div class="frames-grid">
           <div class="frame-card">
             <div class="frame-icon">
               <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3"/></svg>

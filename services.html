@@ -16,7 +16,8 @@
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
     header { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 64px; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 72px; }
+    .logo-img { height: 56px; width: auto; display: block; }
     .logo { font-size: 1.2rem; font-weight: 700; color: var(--teal); line-height: 1.2; }
     .logo span { display: block; font-size: 0.75rem; font-weight: 400; color: var(--gray); }
     nav { display: flex; gap: 28px; align-items: center; }
@@ -58,6 +59,7 @@
     .service-visual h3 { font-size: 1rem; font-weight: 700; color: var(--teal); margin-bottom: 8px; }
     .service-visual p { font-size: 0.9rem; color: var(--gray); }
     .service-visual.dark p { color: rgba(255,255,255,0.7); }
+    .service-photo { width: 100%; height: 100%; min-height: 380px; object-fit: cover; border-radius: 16px; display: block; }
     .info-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
     .info-box.dark-inner { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.1); }
     .info-box h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; }
@@ -104,7 +106,9 @@
 
 <header>
   <div class="nav-inner">
-    <a href="index.html" class="logo">Macy's Eye Care<span>Honolulu, Hawaii</span></a>
+    <a href="index.html">
+      <img src="images/Macys-Eye-Care-logo.png" alt="Macy's Eye Care" class="logo-img">
+    </a>
     <nav>
       <a href="index.html">Home</a>
       <a href="services.html" class="active">Eye Care Services</a>
@@ -153,55 +157,15 @@
         </ul>
         <a href="contact.html" class="btn-primary" style="margin-top:8px;">Schedule an Exam</a>
       </div>
-      <div class="service-visual">
-        <h3>Advanced Diagnostic Technology</h3>
-        <div class="info-box">
-          <h4>Optomap Retinal Imaging</h4>
-          <p>Ultra-widefield retinal imaging for a comprehensive view of your retinal health without dilation in most cases.</p>
-        </div>
-        <div class="info-box">
-          <h4>Slit Lamp Examination</h4>
-          <p>Detailed examination of your cornea, lens, iris, and other eye structures using specialized microscopy.</p>
-        </div>
-        <div class="info-box">
-          <h4>Autorefractor</h4>
-          <p>Precise measurement of your refractive error to guide your prescription with accuracy.</p>
-        </div>
-        <div class="info-box">
-          <h4>Tonometry (Puffer Test)</h4>
-          <p>Measurement of eye pressure to screen for glaucoma risk.</p>
-        </div>
-        <div class="info-box">
-          <h4>Pediatric &amp; Infant Eye Exams</h4>
-          <p>Specialized exams for children's visual development — early detection matters.</p>
-        </div>
+      <div>
+        <img src="images/DSC_4408-scaled.jpg" alt="Optometrist with advanced diagnostic equipment at Macy's Eye Care" class="service-photo">
       </div>
     </div>
 
     <!-- EYE CONDITIONS -->
     <div class="service-section reverse" id="conditions">
-      <div class="service-visual">
-        <h3>Conditions We Treat</h3>
-        <div class="info-box">
-          <h4>Glaucoma</h4>
-          <p>The "sneak thief of sight" — often symptomless until significant damage occurs. Regular screening is essential.</p>
-        </div>
-        <div class="info-box">
-          <h4>Dry Eye Syndrome</h4>
-          <p>Treatment options including warm compress therapy, tea tree oil lid scrubs, and artificial tear management.</p>
-        </div>
-        <div class="info-box">
-          <h4>Cataracts</h4>
-          <p>Monitoring and co-management of cataracts and cataract surgery referrals when appropriate.</p>
-        </div>
-        <div class="info-box">
-          <h4>Diabetic Retinopathy</h4>
-          <p>Annual dilated eye exams are critical for diabetic patients to detect retinal changes early.</p>
-        </div>
-        <div class="info-box">
-          <h4>Macular Degeneration</h4>
-          <p>Monitoring of AMD and counseling on nutrition and lifestyle factors that affect progression.</p>
-        </div>
+      <div>
+        <img src="images/DSC_43832-scaled.jpg" alt="Patient during eye exam at Macy's Eye Care" class="service-photo">
       </div>
       <div class="service-content">
         <div class="section-label">Service</div>
@@ -255,24 +219,8 @@
 
     <!-- CHILDREN'S EYE CARE -->
     <div class="service-section reverse" id="children">
-      <div class="service-visual">
-        <h3>Children's Vision Milestones</h3>
-        <div class="info-box">
-          <h4>Infants (Birth–1 year)</h4>
-          <p>First eye exam recommended at 6 months to ensure eyes are tracking correctly and developing normally.</p>
-        </div>
-        <div class="info-box">
-          <h4>Preschool (Ages 2–5)</h4>
-          <p>Vision screening to detect amblyopia (lazy eye), strabismus, and other early vision problems before school age.</p>
-        </div>
-        <div class="info-box">
-          <h4>School Age (Ages 6–18)</h4>
-          <p>Annual exams recommended. Uncorrected vision problems can impact learning, reading, and school performance.</p>
-        </div>
-        <div class="info-box">
-          <h4>Myopia Management</h4>
-          <p>Progressive myopia in children is increasingly common. Early intervention can help slow progression.</p>
-        </div>
+      <div>
+        <img src="images/photo-3-1-scaled.jpg" alt="Doctor performing eye examination" class="service-photo">
       </div>
       <div class="service-content">
         <div class="section-label">Service</div>
