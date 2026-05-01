@@ -14,239 +14,273 @@
       --teal: #64c4af;
       --teal-dark: #4ea897;
       --coral: #e8ac9b;
-      --dark: #1a1a1a;
-      --gray: #555;
-      --light-gray: #f7f7f7;
-      --border: #e0e0e0;
+      --dark: #2d2d2d;
+      --gray: #666;
+      --bg: #f7f2ee;
+      --border: #e0d8d0;
+      --white: #ffffff;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--dark); line-height: 1.6; }
+    body { font-family: 'Inter', sans-serif; color: var(--dark); line-height: 1.6; background: var(--bg); }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    /* NAV */
+    /* TOP BAR */
+    .top-bar {
+      background: #ebebeb;
+      display: flex; align-items: center; justify-content: center; gap: 24px;
+      padding: 7px 20px; font-size: 0.82rem; color: var(--dark);
+    }
+    .top-bar-call {
+      background: var(--teal); color: #fff;
+      padding: 4px 16px; border-radius: 3px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em;
+      transition: background 0.2s;
+    }
+    .top-bar-call:hover { background: var(--teal-dark); }
+
+    /* HEADER */
     header {
+      background: var(--white);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
       position: sticky; top: 0; z-index: 100;
-      background: #fff; border-bottom: 1px solid var(--border);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
-    .nav-inner {
+    .header-top {
       max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 20px; height: 72px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 14px 20px; gap: 0; position: relative;
     }
-    .logo-img { height: 56px; width: auto; display: block; }
-    .logo { font-size: 1.2rem; font-weight: 700; color: var(--teal); line-height: 1.2; }
-    .logo span { display: block; font-size: 0.75rem; font-weight: 400; color: var(--gray); }
-    nav { display: flex; gap: 28px; align-items: center; }
-    nav a { font-size: 0.9rem; font-weight: 500; color: var(--dark); transition: color 0.2s; }
-    nav a:hover { color: var(--teal); }
-    .nav-cta {
-      background: var(--teal); color: #fff !important;
-      padding: 8px 18px; border-radius: 5px; font-size: 0.85rem !important;
-      transition: background 0.2s !important;
+    .header-rule { flex: 1; height: 1px; background: var(--coral); opacity: 0.45; }
+    .header-logo-wrap { padding: 0 36px; }
+    .header-logo-wrap img { height: 70px; width: auto; display: block; }
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px; padding: 4px;
+      position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
     }
-    .nav-cta:hover { background: var(--teal-dark) !important; color: #fff !important; }
-    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; transition: all 0.3s; }
-    .mobile-nav { display: none; background: #fff; border-top: 1px solid var(--border); padding: 16px 20px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; }
+    .main-nav {
+      border-top: 1px solid #e8e0d8;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .main-nav a {
+      font-size: 0.78rem; font-weight: 600; color: var(--dark);
+      padding: 11px 16px; text-transform: uppercase; letter-spacing: 0.07em;
+      border-right: 1px solid #e0d8d0; transition: color 0.2s;
+    }
+    .main-nav a:first-child { border-left: 1px solid #e0d8d0; }
+    .main-nav a:hover { color: var(--teal); }
+    .main-nav .nav-appt {
+      color: var(--coral); font-weight: 700; border-right: none;
+    }
+    .main-nav .nav-appt:hover { color: var(--teal); }
+    .mobile-nav { display: none; background: var(--white); border-top: 1px solid var(--border); padding: 16px 20px; }
     .mobile-nav.open { display: block; }
-    .mobile-nav a { display: block; padding: 10px 0; font-size: 0.95rem; font-weight: 500; border-bottom: 1px solid var(--border); }
-    .mobile-nav a:last-child { border-bottom: none; }
-    .mobile-nav .nav-cta { margin-top: 12px; display: inline-block; border-bottom: none; }
+    .mobile-nav a { display: block; padding: 10px 0; font-size: 0.9rem; font-weight: 500; border-bottom: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.05em; }
+    .mobile-nav a:last-child { border-bottom: none; color: var(--coral); font-weight: 700; }
 
     /* HERO */
-    .hero {
-      background: linear-gradient(135deg, #0d1f2d 0%, #1a3a4a 50%, #2a5a6a 100%);
-      color: #fff; overflow: hidden;
-    }
-    .hero-split {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr;
-      align-items: stretch; min-height: 460px;
-    }
-    .hero-text {
-      padding: 80px 48px 80px 20px;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .hero-photo { overflow: hidden; }
-    .hero-photo img {
-      width: 100%; height: 100%; min-height: 460px;
+    .hero { position: relative; overflow: hidden; background: #eaeaea; }
+    .hero-img {
+      width: 100%; height: 500px;
       object-fit: cover; object-position: left center; display: block;
     }
-    .hero-badge {
+    .hero-overlay {
+      position: absolute; top: 0; right: 0;
+      width: 44%; height: 100%;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 40px 52px;
+    }
+    .hero-overlay h1 {
+      font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+      font-weight: 700; color: #2d2d2d; line-height: 1.25; margin-bottom: 28px;
+    }
+    .btn-teal {
       display: inline-block; background: var(--teal); color: #fff;
-      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
+      font-weight: 600; font-size: 0.88rem; padding: 13px 28px;
+      border-radius: 4px; transition: background 0.2s; align-self: flex-start;
     }
-    .hero h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.15; max-width: 520px; margin: 0 0 16px; }
-    .hero p { font-size: 1.05rem; color: rgba(255,255,255,0.82); max-width: 460px; margin: 0 0 32px; }
-    .hero-actions { display: flex; gap: 14px; justify-content: flex-start; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--teal); color: #fff; font-weight: 600; font-size: 0.95rem;
-      padding: 14px 28px; border-radius: 6px; border: 2px solid var(--teal);
-      transition: background 0.2s, border-color 0.2s; cursor: pointer; display: inline-block;
-    }
-    .btn-primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
-    .btn-outline {
-      background: transparent; color: #fff; font-weight: 600; font-size: 0.95rem;
-      padding: 14px 28px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.5);
-      transition: border-color 0.2s, background 0.2s; cursor: pointer; display: inline-block;
-    }
-    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+    .btn-teal:hover { background: var(--teal-dark); }
 
-    /* INFO BAR */
-    .info-bar {
-      background: var(--teal); color: #fff;
-      display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
-    }
-    .info-bar-item {
-      display: flex; align-items: center; gap: 8px;
-      padding: 14px 28px; font-size: 0.9rem; font-weight: 500;
-      border-right: 1px solid rgba(255,255,255,0.25);
-    }
-    .info-bar-item:last-child { border-right: none; }
-    .info-bar-item svg { flex-shrink: 0; }
-
-    /* SECTIONS */
-    .section { padding: 72px 20px; }
-    .section-alt { background: var(--light-gray); }
-    .container { max-width: 1100px; margin: 0 auto; }
+    /* SECTION LABELS */
     .section-label {
-      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--teal); margin-bottom: 10px;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--dark); margin-bottom: 14px;
     }
-    .section-title { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
-    .section-sub { font-size: 1.05rem; color: var(--gray); max-width: 620px; }
+    .section-label::before {
+      content: '';
+      display: block; width: 52px; height: 3px;
+      background: var(--coral); margin-bottom: 8px;
+    }
 
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .about-text p { color: var(--gray); margin-bottom: 16px; }
-    .about-text .btn-primary { margin-top: 8px; }
-    .about-photo { border-radius: 16px; overflow: hidden; }
-    .about-img { width: 100%; height: 420px; object-fit: cover; object-position: center top; display: block; }
+    /* WELCOME SECTION */
+    .welcome-section { background: var(--white); padding: 56px 20px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .welcome-grid { display: grid; grid-template-columns: 1fr 280px; gap: 36px; align-items: start; margin-top: 24px; }
 
-    /* SERVICES GRID */
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 48px; }
+    /* GALLERY SLIDER */
+    .gallery-slider { position: relative; background: #111; overflow: hidden; border-radius: 4px; }
+    .gallery-track-wrap { overflow: hidden; }
+    .gallery-track {
+      display: flex; transition: transform 0.55s ease;
+    }
+    .gallery-track img {
+      flex-shrink: 0; width: 100%; height: 380px;
+      object-fit: cover; display: block;
+    }
+    .slide-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.38); color: #fff; border: none; cursor: pointer;
+      width: 38px; height: 64px; font-size: 1.8rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s; z-index: 2; padding: 0;
+    }
+    .slide-btn:hover { background: rgba(0,0,0,0.62); }
+    .slide-prev { left: 0; border-radius: 0 3px 3px 0; }
+    .slide-next { right: 0; border-radius: 3px 0 0 3px; }
+
+    /* WELCOME TEXT */
+    .welcome-text { margin-top: 24px; }
+    .welcome-text h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 12px; }
+    .welcome-text p { color: var(--gray); font-size: 0.9rem; margin-bottom: 10px; }
+    .btn-call {
+      display: inline-block; background: var(--teal); color: #fff;
+      font-weight: 700; font-size: 0.75rem; letter-spacing: 0.07em;
+      text-transform: uppercase; padding: 9px 20px; border-radius: 3px;
+      margin-top: 6px; transition: background 0.2s;
+    }
+    .btn-call:hover { background: var(--teal-dark); }
+
+    /* SIDEBAR */
+    .sidebar-actions { display: flex; flex-direction: column; }
+    .sidebar-btn {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--coral); color: #fff;
+      padding: 13px 14px; font-size: 0.8rem; font-weight: 600;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      transition: opacity 0.2s;
+    }
+    .sidebar-btn:hover { opacity: 0.87; }
+    .sidebar-btn:last-child { border-bottom: none; }
+    .sidebar-btn svg { flex-shrink: 0; }
+    .hours-sidebar { margin-top: 0; }
+    .hours-sidebar table { width: 100%; border-collapse: collapse; }
+    .hours-sidebar tr { border-bottom: 1px solid var(--border); }
+    .hours-sidebar tr:last-child { border-bottom: none; }
+    .hours-sidebar td {
+      padding: 8px 10px; font-size: 0.78rem;
+      border-left: 3px solid var(--teal);
+    }
+    .hours-sidebar td:first-child { font-weight: 700; color: var(--dark); white-space: nowrap; }
+    .hours-sidebar td:last-child { color: var(--gray); }
+    .hours-sidebar .closed td:last-child { color: #bbb; }
+
+    /* WHY US - GLASSES PATTERN */
+    .why-section {
+      padding: 60px 20px;
+      background-color: #e2e2e2;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='160'%3E%3Cg fill='none' stroke='%23999' stroke-width='1.6' opacity='0.32'%3E%3Cellipse cx='38' cy='32' rx='17' ry='12'/%3E%3Cellipse cx='76' cy='32' rx='17' ry='12'/%3E%3Cline x1='55' y1='32' x2='59' y2='32'/%3E%3Cline x1='21' y1='29' x2='13' y2='26'/%3E%3Cline x1='93' y1='29' x2='101' y2='26'/%3E%3C/g%3E%3Cg fill='none' stroke='%23888' stroke-width='1.4' opacity='0.28' transform='rotate(35 160 50)'%3E%3Cellipse cx='140' cy='35' rx='14' ry='9'/%3E%3Cellipse cx='172' cy='35' rx='14' ry='9'/%3E%3Cline x1='154' y1='35' x2='158' y2='35'/%3E%3Cline x1='126' y1='32' x2='119' y2='29'/%3E%3Cline x1='186' y1='32' x2='193' y2='29'/%3E%3C/g%3E%3Cg fill='none' stroke='%23aaa' stroke-width='1.5' opacity='0.25' transform='rotate(-20 50 120)'%3E%3Ccircle cx='35' cy='120' r='13'/%3E%3Ccircle cx='66' cy='120' r='13'/%3E%3Cline x1='48' y1='120' x2='53' y2='120'/%3E%3Cline x1='22' y1='117' x2='15' y2='114'/%3E%3Cline x1='79' y1='117' x2='86' y2='114'/%3E%3C/g%3E%3Cg fill='none' stroke='%23999' stroke-width='1.5' opacity='0.3' transform='rotate(15 140 130)'%3E%3Ccircle cx='130' cy='128' r='11'/%3E%3Ccircle cx='157' cy='128' r='11'/%3E%3Cline x1='141' y1='128' x2='146' y2='128'/%3E%3Cline x1='119' y1='126' x2='113' y2='123'/%3E%3Cline x1='168' y1='126' x2='174' y2='123'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 200px 160px;
+    }
+    .why-section .section-label { display: inline-block; }
+    .why-title { font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 700; margin-bottom: 36px; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .why-card {
+      background: #1a1a1a; color: #fff;
+      border-radius: 6px; padding: 32px 22px; text-align: center;
+    }
+    .why-icon {
+      width: 50px; height: 50px; border-radius: 50%; background: var(--teal);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+    }
+    .why-card h3 { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+    .why-card p { font-size: 0.83rem; color: rgba(255,255,255,0.73); line-height: 1.58; }
+
+    /* CONTENT IMAGE */
+    .content-img-section { padding: 56px 20px; background: var(--bg); }
+    .content-img-wrap { border-radius: 6px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .content-img-wrap img { width: 100%; height: auto; display: block; }
+
+    /* SERVICES */
+    .services-section { padding: 56px 20px; background: var(--white); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; margin-top: 36px; }
     .service-card {
-      background: #fff; border: 1px solid var(--border); border-radius: 12px;
-      padding: 28px 24px; transition: box-shadow 0.2s, transform 0.2s;
+      background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+      padding: 22px 18px; transition: box-shadow 0.2s, transform 0.2s;
     }
-    .service-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .service-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.09); transform: translateY(-2px); }
     .service-icon {
-      width: 48px; height: 48px; background: rgba(100,196,175,0.12);
-      border-radius: 10px; display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px;
+      width: 42px; height: 42px; background: rgba(100,196,175,0.14);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
     }
     .service-icon svg { color: var(--teal); }
-    .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
-    .service-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.5; }
-    .service-link { display: inline-block; margin-top: 14px; font-size: 0.85rem; font-weight: 600; color: var(--teal); }
+    .service-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; }
+    .service-card p { font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
+    .service-link { display: inline-block; margin-top: 10px; font-size: 0.8rem; font-weight: 600; color: var(--teal); }
     .service-link:hover { text-decoration: underline; }
 
-    /* PHOTO STRIP */
-    .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); }
-    .strip-img { overflow: hidden; height: 260px; }
-    .strip-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
-    .strip-img img:hover { transform: scale(1.04); }
-
-    /* WHY US */
-    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-    .why-card {
-      background: var(--dark); color: #fff; border-radius: 12px;
-      padding: 32px 24px; text-align: center;
-    }
-    .why-card .why-icon {
-      width: 56px; height: 56px; background: var(--teal); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
-    }
-    .why-card h3 { font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 10px; color: var(--teal); }
-    .why-card p { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.55; }
-
-    /* IMAGE BANNER */
-    .img-banner { overflow: hidden; height: 320px; }
-    .img-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
-
-    /* HOURS */
-    .hours-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-    .hours-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
-    .hours-table tr { border-bottom: 1px solid var(--border); }
-    .hours-table tr:last-child { border-bottom: none; }
-    .hours-table td { padding: 10px 0; font-size: 0.95rem; }
-    .hours-table td:first-child { font-weight: 600; color: var(--dark); }
-    .hours-table td:last-child { color: var(--gray); text-align: right; }
-    .hours-table .closed { color: #aaa; }
-    .contact-info { margin-top: 24px; }
-    .contact-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px; }
-    .contact-item-icon {
-      width: 40px; height: 40px; background: rgba(100,196,175,0.12); border-radius: 8px;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
-    }
-    .contact-item-icon svg { color: var(--teal); }
-    .contact-item-label { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray); margin-bottom: 2px; }
-    .contact-item-value { font-size: 0.95rem; color: var(--dark); font-weight: 500; }
-    .contact-item-value a:hover { color: var(--teal); }
-    .map-embed { margin-top: 28px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
-
-    /* BRANDS */
-    .brands-row { display: flex; gap: 32px; flex-wrap: wrap; align-items: center; justify-content: center; margin-top: 40px; }
-    .brand-pill {
-      background: #fff; border: 1px solid var(--border); border-radius: 8px;
-      padding: 14px 28px; font-size: 0.95rem; font-weight: 600; color: var(--gray);
-    }
-
-    /* CTA BANNER */
-    .cta-banner {
-      background: var(--teal); color: #fff; text-align: center; padding: 60px 20px;
-    }
-    .cta-banner h2 { font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 700; margin-bottom: 10px; }
-    .cta-banner p { font-size: 1.05rem; opacity: 0.88; margin-bottom: 28px; }
-    .btn-white {
-      background: #fff; color: var(--teal); font-weight: 700; font-size: 0.95rem;
-      padding: 14px 32px; border-radius: 6px; border: 2px solid #fff;
-      transition: background 0.2s; display: inline-block;
-    }
-    .btn-white:hover { background: rgba(255,255,255,0.9); }
+    /* CTA STRIP */
+    .cta-strip { background: var(--coral); height: 28px; }
 
     /* FOOTER */
-    footer {
-      background: #0d1f2d; color: rgba(255,255,255,0.7);
-      padding: 52px 20px 28px;
+    footer { background: #e0e0e0; padding: 44px 20px 0; }
+    .footer-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 220px 1fr 260px; gap: 40px; align-items: start;
     }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; }
-    .footer-brand .logo { color: var(--teal); margin-bottom: 14px; font-size: 1.1rem; }
-    .footer-brand p { font-size: 0.875rem; line-height: 1.65; max-width: 300px; }
-    .footer-col h4 { color: #fff; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px; }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 10px; }
-    .footer-col ul li a { font-size: 0.875rem; transition: color 0.2s; }
-    .footer-col ul li a:hover { color: var(--teal); }
+    .footer-nav ul { list-style: none; }
+    .footer-nav ul li { border-bottom: 1px solid #cacaca; }
+    .footer-nav ul li a { display: block; padding: 8px 0; font-size: 0.83rem; color: var(--dark); transition: color 0.2s; }
+    .footer-nav ul li a:hover { color: var(--teal); }
+    .footer-center { text-align: center; }
+    .social-icons { display: flex; justify-content: center; gap: 10px; margin-bottom: 18px; }
+    .social-icon {
+      width: 38px; height: 38px; border: 2px solid #888; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; color: #666; transition: all 0.2s;
+    }
+    .social-icon:hover { border-color: var(--teal); color: var(--teal); }
+    .footer-appt-btn {
+      display: inline-block; background: var(--teal); color: #fff;
+      padding: 11px 22px; border-radius: 3px;
+      font-size: 0.83rem; font-weight: 600; transition: background 0.2s;
+    }
+    .footer-appt-btn:hover { background: var(--teal-dark); }
+    .footer-info h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; }
+    .footer-info p { font-size: 0.82rem; color: #555; margin-bottom: 3px; }
+    .footer-info a { color: var(--teal); }
     .footer-bottom {
-      max-width: 1100px; margin: 36px auto 0; padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
-      font-size: 0.8rem; color: rgba(255,255,255,0.4);
+      max-width: 1100px; margin: 28px auto 0; padding: 14px 0 16px;
+      border-top: 1px solid #c8c8c8;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+      font-size: 0.74rem; color: #666;
     }
+    .footer-bottom-powered { display: flex; align-items: center; gap: 6px; }
+    .footer-bottom-powered img { height: 18px; width: auto; display: inline-block; vertical-align: middle; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a { color: #666; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--teal); }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { display: none; }
-      .hamburger { display: flex; }
-      .hero-split { grid-template-columns: 1fr; }
-      .hero-text { padding: 52px 20px; }
-      .hero-photo { display: none; }
-      .about-grid, .hours-contact-grid, .footer-grid { grid-template-columns: 1fr; }
+    @media (max-width: 860px) {
+      .welcome-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr; }
-      .info-bar-item { padding: 12px 16px; font-size: 0.82rem; }
-      .section { padding: 52px 20px; }
-      .photo-strip { grid-template-columns: 1fr; }
-      .strip-img { height: 220px; }
-      .img-banner { height: 220px; }
+      .footer-grid { grid-template-columns: 1fr; }
     }
-    @media (max-width: 480px) {
-      .info-bar { flex-direction: column; }
-      .info-bar-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
-      .info-bar-item:last-child { border-bottom: none; }
+    @media (max-width: 768px) {
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+      .hero-img { height: 340px; }
+      .hero-overlay { width: 52%; padding: 24px 28px; }
+      .hero-overlay h1 { font-size: 1.4rem; }
+    }
+    @media (max-width: 520px) {
+      .hero-overlay {
+        width: 100%; bottom: 0; top: auto; height: auto;
+        background: rgba(255,255,255,0.88); padding: 18px 20px;
+      }
+      .hero-img { height: 280px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -255,332 +289,278 @@
 </head>
 <body>
 
+<!-- TOP BAR -->
+<div class="top-bar">
+  <a href="tel:8084925066" class="top-bar-call">Call 808-492-5066</a>
+  <span>Located inside Macy's Ala Moana</span>
+</div>
+
 <!-- HEADER -->
 <header>
-  <div class="nav-inner">
-    <a href="index.html">
-      <img src="images/Macys-Eye-Care-logo.png" alt="Macy's Eye Care" class="logo-img">
-    </a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Eye Care Services</a>
-      <a href="eyeglasses.html">Eyeglasses &amp; Contacts</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="tel:8084925066" class="nav-cta">Call 808-492-5066</a>
-    </nav>
+  <div class="header-top">
+    <div class="header-rule"></div>
+    <div class="header-logo-wrap">
+      <a href="index.html">
+        <img src="images/Macys-Eye-Care-logo.png" alt="Macy's Eye Care">
+      </a>
+    </div>
+    <div class="header-rule"></div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
+  <nav class="main-nav" id="mainNav">
+    <a href="contact.html">Hours &amp; Location</a>
+    <a href="services.html">Eye Care Services</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="eyeglasses.html">Eyeglasses &amp; Contacts</a>
+    <a href="contact.html" class="nav-appt">Request An Appointment!</a>
+  </nav>
   <div class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
+    <a href="contact.html">Hours &amp; Location</a>
     <a href="services.html">Eye Care Services</a>
     <a href="eyeglasses.html">Eyeglasses &amp; Contacts</a>
     <a href="contact.html">Contact Us</a>
-    <a href="tel:8084925066" class="nav-cta btn-primary">Call 808-492-5066</a>
+    <a href="contact.html">Request An Appointment</a>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-split">
-    <div class="hero-text">
-      <div class="hero-badge">Honolulu's Trusted Optometrist</div>
-      <h1>Quality Eye Care — Right Inside Macy's Ala Moana</h1>
-      <p>Comprehensive medical-based optometry, designer frames, and contact lenses. Serving Honolulu patients with care and the latest diagnostic technology.</p>
-      <div class="hero-actions">
-        <a href="contact.html" class="btn-primary">Request an Appointment</a>
-        <a href="tel:8084925066" class="btn-outline">Call 808-492-5066</a>
+  <img src="images/hero-image.jpg" alt="Patient at Macy's Eye Care wearing glasses" class="hero-img">
+  <div class="hero-overlay">
+    <h1>You'll never want to wear anything else again</h1>
+    <a href="contact.html" class="btn-teal">Request An Appointment</a>
+  </div>
+</section>
+
+<!-- WELCOME -->
+<section class="welcome-section">
+  <div class="container">
+    <div class="section-label">Welcome!</div>
+    <div class="welcome-grid">
+
+      <!-- LEFT: Gallery + intro text -->
+      <div>
+        <div class="gallery-slider">
+          <div class="gallery-track-wrap">
+            <div class="gallery-track" id="galleryTrack">
+              <img src="images/DSC_43832-scaled.jpg" alt="Patient during eye exam">
+              <img src="images/DSC_4402-scaled.jpg" alt="Doctor reviewing retinal imaging">
+              <img src="images/DSC_4408-scaled.jpg" alt="Optometrist with diagnostic equipment">
+              <img src="images/slit-lamp-photo-scaled.jpg" alt="Patient at slit lamp examination">
+              <img src="images/photo-3-1-scaled.jpg" alt="Eye examination in progress">
+              <img src="images/Asian-Woman-Smiling-1280x480.jpg" alt="Eye care patient">
+            </div>
+          </div>
+          <button class="slide-btn slide-prev" id="slidePrev" aria-label="Previous slide">&#8249;</button>
+          <button class="slide-btn slide-next" id="slideNext" aria-label="Next slide">&#8250;</button>
+        </div>
+        <div class="welcome-text">
+          <h2>Macy's Eye Care — Quality Eye Care in Honolulu</h2>
+          <p>Macy's Eye Care is dedicated to providing the most comprehensive medical-based optometry to patients throughout Honolulu. Our eye exams are designed to screen for diseases and identify any eye abnormalities. We also have a large selection of contact lenses for you to choose from, with brands to suit every preference.</p>
+          <p>Visit our optometrists in Honolulu, Hawaii to elevate your eye care to the next level.</p>
+          <a href="tel:8084925066" class="btn-call">Call Us! 808-492-5066</a>
+        </div>
       </div>
-    </div>
-    <div class="hero-photo">
-      <img src="images/hero-image.jpg" alt="Patient at Macy's Eye Care, Honolulu">
+
+      <!-- RIGHT: Action buttons + hours -->
+      <div>
+        <div class="sidebar-actions">
+          <a href="contact.html" class="sidebar-btn">
+            <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            Request an Exam Online
+          </a>
+          <a href="contact.html" class="sidebar-btn">
+            <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Contact Us
+          </a>
+          <a href="contact.html" class="sidebar-btn">
+            <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Patient Intake Form
+          </a>
+        </div>
+        <div class="hours-sidebar">
+          <table>
+            <tr><td>Monday:</td><td>10:00 AM – 2:00 PM<br>3:00 PM – 6:00 PM</td></tr>
+            <tr class="closed"><td>Tuesday:</td><td>Closed</td></tr>
+            <tr class="closed"><td>Wednesday:</td><td>Closed</td></tr>
+            <tr><td>Thursday:</td><td>10:00 AM – 2:00 PM<br>3:00 PM – 6:00 PM</td></tr>
+            <tr class="closed"><td>Friday:</td><td>Closed</td></tr>
+            <tr><td>Saturday:</td><td>10:00 AM – 2:00 PM<br>3:00 PM – 6:00 PM</td></tr>
+            <tr class="closed"><td>Sunday:</td><td>Closed</td></tr>
+          </table>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- INFO BAR -->
-<div class="info-bar">
-  <div class="info-bar-item">
-    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
-    1450 Ala Moana Blvd, Suite 1300, Honolulu
-  </div>
-  <div class="info-bar-item">
-    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-    <a href="tel:8084925066" style="color:#fff;">808-492-5066</a>
-  </div>
-  <div class="info-bar-item">
-    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>
-    Mon, Thu, Sat: 10am–2pm &amp; 3pm–6pm
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section class="section">
+<!-- WHY US -->
+<section class="why-section">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <div class="section-label">About Us</div>
-        <h2 class="section-title">Comprehensive Eye Care in Honolulu</h2>
-        <p>Macy's Eye Care is dedicated to providing the most comprehensive medical-based optometry to patients throughout Honolulu. Our eye exams are designed to screen for diseases and identify any eye abnormalities.</p>
-        <p>We also have a large selection of contact lenses for you to choose from, with brands to suit every preference. Visit our optometrists in Honolulu, Hawaii to elevate your eye care to the next level.</p>
-        <p>Conveniently located inside Macy's at Ala Moana Center, Suite 1300 — making your next eye appointment easy to fit into your day.</p>
-        <a href="services.html" class="btn-primary" style="margin-top:8px;">View Our Services</a>
+    <div class="section-label">Why Us?</div>
+    <h2 class="why-title">3 Things That Make Macy's Eye Care Unique</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <h3>A Caring Focus</h3>
+        <p>Our trained eye care staff in Honolulu specialize in understanding how the human eye really works. We also take great pride in getting to know you!</p>
       </div>
-      <div class="about-photo">
-        <img src="images/DSC_4402-scaled.jpg" alt="Doctor at Macy's Eye Care reviewing retinal imaging" class="about-img">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+        </div>
+        <h3>Knowledge &amp; Technology</h3>
+        <p>At Macy's Eye Care we make sure that we have the most up-to-date diagnostic technology so we can take the best care of your eyes.</p>
       </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2"/></svg>
+        </div>
+        <h3>Wide Contact Lens Choices</h3>
+        <p>Looking good is feeling good and that affects your confidence. We take the time to find the best quality contact lens brands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT IMAGE (Dry Eye / Patient photo) -->
+<section class="content-img-section">
+  <div class="container">
+    <div class="section-label">Dry Eye Treatment</div>
+    <div class="content-img-wrap">
+      <img src="images/Asian-Woman-Smiling-1280x480.jpg" alt="Eye care patient in Honolulu">
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section class="section section-alt">
+<section class="services-section">
   <div class="container">
-    <div class="section-label">What We Offer</div>
-    <h2 class="section-title">Our Eye Care Services</h2>
-    <p class="section-sub">Comprehensive vision exams and so much more. We handle everything from routine check-ups to eye emergencies.</p>
+    <div class="section-label">Our Eye Care Services</div>
+    <h2 style="font-size:clamp(1.3rem,2.5vw,1.8rem); font-weight:700; margin-bottom:6px;">Comprehensive Eye Care for All Ages</h2>
+    <p style="color:var(--gray); font-size:0.88rem;">From routine check-ups to emergency eye care — we handle it all.</p>
     <div class="services-grid">
-
       <div class="service-card">
-        <div class="service-icon">
-          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-        </div>
+        <div class="service-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></div>
         <h3>Comprehensive Eye Exams</h3>
-        <p>Complete eye exams aren't just for updating your prescription. We screen for diseases, identify eye abnormalities, and check for conditions that can affect your overall health.</p>
+        <p>Screen for diseases, identify eye abnormalities, and check your overall ocular health.</p>
         <a href="services.html#eye-exams" class="service-link">Learn more &rarr;</a>
       </div>
-
       <div class="service-card">
-        <div class="service-icon">
-          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg>
-        </div>
+        <div class="service-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2"/></svg></div>
         <h3>Contact Lenses</h3>
-        <p>We offer a wide range of contact lenses including exams and professional fittings. Brands include Alcon, Bausch &amp; Lomb, CooperVision, and Johnson &amp; Johnson.</p>
+        <p>Professional fittings with Alcon, Bausch &amp; Lomb, CooperVision, and Johnson &amp; Johnson.</p>
         <a href="eyeglasses.html#contacts" class="service-link">Learn more &rarr;</a>
       </div>
-
       <div class="service-card">
-        <div class="service-icon">
-          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M16 3h-8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"/></svg>
-        </div>
+        <div class="service-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M16 3h-8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"/></svg></div>
         <h3>Eyeglasses &amp; Frames</h3>
-        <p>Designer frames for men, women, and children. Our optical team will help you find the perfect pair that fits your style and vision needs.</p>
+        <p>Designer frames for men, women, and children to fit your style and prescription.</p>
         <a href="eyeglasses.html" class="service-link">Learn more &rarr;</a>
       </div>
-
       <div class="service-card">
-        <div class="service-icon">
-          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-        </div>
+        <div class="service-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
         <h3>Eye Conditions &amp; Disease</h3>
-        <p>Treatment and management of glaucoma, cataracts, dry eye, macular degeneration, diabetic retinopathy, and other eye conditions.</p>
+        <p>Glaucoma, cataracts, dry eye, macular degeneration, and diabetic retinopathy management.</p>
         <a href="services.html#conditions" class="service-link">Learn more &rarr;</a>
       </div>
-
       <div class="service-card">
-        <div class="service-icon">
-          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
+        <div class="service-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
         <h3>Emergency Eye Care</h3>
-        <p>Eye emergencies need prompt attention. Call us immediately for sudden vision loss, sudden eye pain, foreign body in the eye, new floaters, or eye injury.</p>
-        <a href="tel:8084925066" class="service-link">Call us now: 808-492-5066 &rarr;</a>
+        <p>Sudden vision changes, eye pain, foreign body, or injury? Call us immediately.</p>
+        <a href="tel:8084925066" class="service-link">Call 808-492-5066 &rarr;</a>
       </div>
-
       <div class="service-card">
-        <div class="service-icon">
-          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        </div>
+        <div class="service-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
         <h3>Children's Eye Care</h3>
-        <p>Early detection of vision problems is critical for children's development. We provide comprehensive pediatric and infant eye care exams.</p>
+        <p>Early detection is critical for development. Pediatric and infant eye exams available.</p>
         <a href="services.html#children" class="service-link">Learn more &rarr;</a>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- PHOTO STRIP -->
-<div class="photo-strip">
-  <div class="strip-img"><img src="images/slit-lamp-photo-scaled.jpg" alt="Patient at slit lamp exam"></div>
-  <div class="strip-img"><img src="images/photo-3-1-scaled.jpg" alt="Eye examination in progress"></div>
-  <div class="strip-img"><img src="images/DSC_43832-scaled.jpg" alt="Patient during vision test"></div>
-</div>
-
-<!-- WHY US -->
-<section class="section">
-  <div class="container">
-    <div style="text-align:center;">
-      <div class="section-label">Why Choose Us</div>
-      <h2 class="section-title">3 Things That Make Macy's Eye Care Unique</h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon">
-          <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-        </div>
-        <h3>A CARING FOCUS</h3>
-        <p>Our trained eye care staff in Honolulu specialize in understanding how the human eye really works. We also take great pride in getting to know you and your vision needs.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">
-          <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-        </div>
-        <h3>KNOWLEDGE &amp; TECHNOLOGY</h3>
-        <p>At Macy's Eye Care we make sure we have the most up-to-date diagnostic technology so we can provide the best care for your eyes — today and in the years to come.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">
-          <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2"/></svg>
-        </div>
-        <h3>WIDE CONTACT LENS CHOICES</h3>
-        <p>Looking good is feeling good — and that affects your confidence. We take the time to find the best quality contact lens brands to match your lifestyle and preference.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- IMAGE BANNER -->
-<div class="img-banner">
-  <img src="images/Asian-Woman-Smiling-1280x480.jpg" alt="Eye care patient in Honolulu">
-</div>
-
-<!-- HOURS & CONTACT -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="hours-contact-grid">
-      <div>
-        <div class="section-label">Hours</div>
-        <h2 class="section-title">Office Hours</h2>
-        <table class="hours-table">
-          <tr><td>Monday</td><td>10:00 AM – 2:00 PM &amp; 3:00 PM – 6:00 PM</td></tr>
-          <tr><td>Tuesday</td><td class="closed">Closed</td></tr>
-          <tr><td>Wednesday</td><td class="closed">Closed</td></tr>
-          <tr><td>Thursday</td><td>10:00 AM – 2:00 PM &amp; 3:00 PM – 6:00 PM</td></tr>
-          <tr><td>Friday</td><td class="closed">Closed</td></tr>
-          <tr><td>Saturday</td><td>10:00 AM – 2:00 PM &amp; 3:00 PM – 6:00 PM</td></tr>
-          <tr><td>Sunday</td><td class="closed">Closed</td></tr>
-        </table>
-      </div>
-      <div>
-        <div class="section-label">Contact</div>
-        <h2 class="section-title">Find Us</h2>
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
-            </div>
-            <div>
-              <div class="contact-item-label">Address</div>
-              <div class="contact-item-value">1450 Ala Moana Blvd, Suite 1300<br>Honolulu, HI 96814<br><small style="color:#888;">(Inside Macy's Ala Moana)</small></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            </div>
-            <div>
-              <div class="contact-item-label">Phone</div>
-              <div class="contact-item-value"><a href="tel:8084925066">808-492-5066</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            </div>
-            <div>
-              <div class="contact-item-label">Email</div>
-              <div class="contact-item-value"><a href="mailto:info@macyseyecare.com">info@macyseyecare.com</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-            </div>
-            <div>
-              <div class="contact-item-label">Fax</div>
-              <div class="contact-item-value">808-425-4706</div>
-            </div>
-          </div>
-        </div>
-        <div class="map-embed">
-          <iframe
-            title="Macy's Eye Care Location Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.2!2d-157.8442!3d21.2823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c006df7c7f2ddc3%3A0xc4ad8f5b1b2a9b23!2s1450+Ala+Moana+Blvd%2C+Honolulu%2C+HI+96814!5e0!3m2!1sen!2sus!4v1234567890"
-            width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT LENS BRANDS -->
-<section class="section">
-  <div class="container" style="text-align:center;">
-    <div class="section-label">Contact Lens Brands</div>
-    <h2 class="section-title">Brands We Carry</h2>
-    <p class="section-sub" style="margin: 0 auto;">We carry leading contact lens brands to suit every vision need and lifestyle.</p>
-    <div class="brands-row">
-      <div class="brand-pill">Alcon</div>
-      <div class="brand-pill">Bausch &amp; Lomb</div>
-      <div class="brand-pill">CooperVision</div>
-      <div class="brand-pill">Johnson &amp; Johnson</div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BANNER -->
-<div class="cta-banner">
-  <h2>Ready to Schedule Your Eye Exam?</h2>
-  <p>Call us or send us a message — we'll find a time that works for you.</p>
-  <a href="contact.html" class="btn-white" style="margin-right:14px;">Request Appointment</a>
-  <a href="tel:8084925066" class="btn-white">Call 808-492-5066</a>
-</div>
+<!-- CORAL STRIP -->
+<div class="cta-strip"></div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="logo">Macy's Eye Care<span>Honolulu, Hawaii</span></div>
-      <p>Comprehensive medical-based optometry serving Honolulu. Located inside Macy's at Ala Moana Center, Suite 1300.</p>
-      <p style="margin-top:12px;">Phone: <a href="tel:8084925066" style="color:var(--teal);">808-492-5066</a></p>
-    </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="services.html#eye-exams">Eye Exams</a></li>
-        <li><a href="eyeglasses.html#contacts">Contact Lenses</a></li>
-        <li><a href="eyeglasses.html">Eyeglasses</a></li>
-        <li><a href="services.html#conditions">Eye Conditions</a></li>
-        <li><a href="services.html#emergency">Emergency Eye Care</a></li>
-        <li><a href="services.html#children">Children's Eye Care</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Practice</h4>
+    <div class="footer-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
         <li><a href="contact.html">Hours &amp; Location</a></li>
-        <li><a href="mailto:info@macyseyecare.com">Email Us</a></li>
+        <li><a href="services.html">Eye Care Services</a></li>
+        <li><a href="eyeglasses.html">Eyeglasses &amp; Contacts</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
       </ul>
+    </div>
+    <div class="footer-center">
+      <div class="social-icons">
+        <a href="#" class="social-icon" aria-label="Facebook">f</a>
+        <a href="#" class="social-icon" aria-label="Yelp">y</a>
+        <a href="#" class="social-icon" aria-label="Google">G</a>
+      </div>
+      <a href="contact.html" class="footer-appt-btn">Request An Appointment</a>
+    </div>
+    <div class="footer-info">
+      <h4>Macy's Eye Care</h4>
+      <p>1450 Ala Moana Blvd Suite 1300</p>
+      <p>Honolulu, HI 96814</p>
+      <p>Phone: <a href="tel:8084925066">808-492-5066</a></p>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2026 Macy's Eye Care. All rights reserved.</span>
-    <span>1450 Ala Moana Blvd, Suite 1300, Honolulu, HI 96814</span>
+    <div class="footer-bottom-powered">
+      <span>&copy; 2026 Powered by</span>
+      <img src="images/eyecarepro-logo.svg" alt="eyecarepro">
+    </div>
+    <div class="footer-links">
+      <a href="#">Accessibility</a>
+      <a href="#">Privacy</a>
+      <a href="#">Disclaimer</a>
+    </div>
   </div>
 </footer>
 
 <script>
+  // Mobile hamburger
   var hamburger = document.getElementById('hamburger');
   var mobileNav = document.getElementById('mobileNav');
   hamburger.addEventListener('click', function() {
     var open = mobileNav.classList.toggle('open');
     hamburger.setAttribute('aria-expanded', open);
   });
+
+  // Gallery auto-slider
+  (function() {
+    var track = document.getElementById('galleryTrack');
+    var total = track.children.length;
+    var current = 0;
+    var timer;
+
+    function goTo(n) {
+      current = ((n % total) + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function startAuto() { timer = setInterval(next, 4500); }
+    function resetAuto() { clearInterval(timer); startAuto(); }
+
+    document.getElementById('slidePrev').addEventListener('click', function() { prev(); resetAuto(); });
+    document.getElementById('slideNext').addEventListener('click', function() { next(); resetAuto(); });
+
+    startAuto();
+  })();
 </script>
 
 </body>
